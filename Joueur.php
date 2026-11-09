@@ -1,19 +1,17 @@
 <?php
-//Class Joueur
 class Joueur {
-    //ATTRIBUT
     private string $nom;
     private int $valeurLance;
     private Des $des;
 
-    //CONSTRUCTEUR
+    //constructeur
     public function __construct(string $newNom, Des $newDes){
         $this->nom = $newNom;
         $this->des = $newDes;
         $this->valeurLance = 0;
     }
 
-    //GETTER ET SETTER
+    //getter setter
     public function getNom(): string {
         return $this->nom;
     }
@@ -41,7 +39,6 @@ class Joueur {
         return $this;
     }
 
-    //METHOD : appelle lancer() de la classe Des et garde le résultat
     public function lancerDes():void{
         $this->valeurLance = $this->des->lancer();
     }

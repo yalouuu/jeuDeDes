@@ -1,14 +1,11 @@
 <?php
-//Class Partie
 class Partie {
-    //ATTRIBUT
     private Joueur $joueur1;
     private Joueur $joueur2;
     private int $nbrTour;
     private int $scoreJ1;
     private int $scoreJ2;
 
-    //CONSTRUCTEUR
     public function __construct(Joueur $newJoueur1, Joueur $newJoueur2, int $newNbrTour){
         $this->joueur1 = $newJoueur1;
         $this->joueur2 = $newJoueur2;
@@ -17,7 +14,6 @@ class Partie {
         $this->scoreJ2 = 0;
     }
 
-    //GETTER ET SETTER
     public function getJoueur1(): Joueur {
         return $this->joueur1;
     }
@@ -63,13 +59,10 @@ class Partie {
         return $this;
     }
 
-    //METHOD : joue tous les tours puis affiche le gagnant
     public function lancerPartie():void{
-        //Boucle sur le nombre de tours
         for($i = 1; $i <= $this->nbrTour; $i++){
             echo("--- Tour ".$i." ---".PHP_EOL);
 
-            //1. Les deux joueurs lancent leur dé
             $this->joueur1->lancerDes();
             $this->joueur2->lancerDes();
 
@@ -79,7 +72,6 @@ class Partie {
             echo($this->joueur1->getNom()." fait ".$lance1.PHP_EOL);
             echo($this->joueur2->getNom()." fait ".$lance2.PHP_EOL);
 
-            //2. Attribution des points
             if($lance1 > $lance2){
                 $this->scoreJ1 += 2;
             }elseif($lance1 == $lance2){
@@ -90,7 +82,6 @@ class Partie {
             }
         }
 
-        //3. Affichage du gagnant
         echo(PHP_EOL."=== Fin de la partie ===".PHP_EOL);
 
         if($this->scoreJ1 > $this->scoreJ2){
